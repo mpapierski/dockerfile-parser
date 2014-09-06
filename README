@@ -1,0 +1,26 @@
+Dockerfile parser
+
+You can use this script to:
+  - Validate your set of Dockerfiles
+  - Process your Dockerfiles and output useful informations such as
+    what ports are exposed, what are working directories.
+
+How you use this
+
+  from dockerfile import parse_raw_dockerfile
+  commands = parse_raw_dockerfile(open('Dockerfile'))
+  for command in commands:
+    if command.startswith('EXPOSE'):
+      print ('EXPOSE', command.rstrip())
+
+What works:
+
+  - Parsing commands and concatenating multiline commands
+    into single ones.
+
+What does not work
+
+  - Some nice API that will process parsed commands.
+
+Author:
+  - Michal Papierski <michal@papierski.net>
